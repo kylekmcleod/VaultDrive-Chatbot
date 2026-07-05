@@ -38,6 +38,8 @@ The doc sent had some inconsistencies and I used best judgetment for fixes. See 
 - [vaultdrive.com](http://vaultdrive.com) reference in doc invalid link
 - no VAPI api key (no worries), I added logic for the call/voice screen but it's just React components, no functionality
 
+Landing page is just a non functional August Page I quickly built, purely just for looks.
+
 I went with the Gemini API over OpenAI because it has a free tier that doesn't require a credit card. The chat uses a simple REST call rather than an SDK to keep dependencies minimal. 
 
 I stored messages in localStorage so the conversation doesn't end when a user accidentally closed or refreshes. Every time a new message is sent or received, the convo gets saved to the browser's localStorage as JSON. When the widget loads, it checks if there's a saved conversation and picks up where you left off instead of showing the welcome screen again. Clicking "End Conversation" clears the stored messages so the next time the widget opens it starts fresh.
