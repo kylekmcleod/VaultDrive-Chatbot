@@ -9,7 +9,7 @@ function WidgetHeader({ onClose, onEndConversation }) {
     <header className="widget-header">
       <div className="widget-header__brand">
         <AugustLogo />
-        <span className="widget-header__title">{DEALERSHIP.name} Support</span>
+        <span className="widget-header__title">{DEALERSHIP.name}</span>
       </div>      <div className="widget-header__actions">
         {onEndConversation && (
           <button

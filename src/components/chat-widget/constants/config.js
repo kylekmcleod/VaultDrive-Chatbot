@@ -1,5 +1,5 @@
 export const DEALERSHIP = {
-  name: 'August Motor Cars',
+  name: 'August Motorcars',
   location: 'Kelowna, BC',
   agentName: 'Jessica',
 }
