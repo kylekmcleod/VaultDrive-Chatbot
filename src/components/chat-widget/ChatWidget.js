@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react'
-import { WIDGET_VIEWS } from '../../constants/config'
-import { hasSavedChat, clearSavedMessages } from '../../hooks/useChat'
+import { WIDGET_VIEWS } from './constants/config'
+import { hasSavedChat, clearSavedMessages } from './hooks/useChat'
 import FloatingButton from './launcher/FloatingButton'
 import LandingScreen from './landing/LandingScreen'
 import ChatScreen from './chat/ChatScreen'

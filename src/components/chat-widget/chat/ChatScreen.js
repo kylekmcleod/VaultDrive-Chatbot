@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useChat } from '../../../hooks/useChat'
+import { useChat } from '../hooks/useChat'
 import WidgetHeader from '../ui/WidgetHeader'
 import WidgetInput from '../ui/WidgetInput'
 import PoweredByFooter from '../ui/PoweredByFooter'

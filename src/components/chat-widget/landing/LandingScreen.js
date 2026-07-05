@@ -1,4 +1,4 @@
-import { DEALERSHIP, QUICK_ACTIONS } from '../../../constants/config'
+import { DEALERSHIP, QUICK_ACTIONS } from '../constants/config'
 import WidgetHeader from '../ui/WidgetHeader'
 import QuickActionButton from '../ui/QuickActionButton'
 import PoweredByFooter from '../ui/PoweredByFooter'

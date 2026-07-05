@@ -1,5 +1,5 @@
-import { DEALERSHIP } from '../../../constants/config'
-import jessicaAvatar from '../../../assets/jessica-avatar.png'
+import { DEALERSHIP } from '../constants/config'
+import jessicaAvatar from '../assets/jessica-avatar.png'
 import './FloatingButton.css'
 
 function FloatingButton({ onClick }) {
