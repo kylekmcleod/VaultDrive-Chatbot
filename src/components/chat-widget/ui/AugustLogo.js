@@ -1,4 +1,4 @@
-import augustLogo from '../../../assets/august-logo.png'
+import augustLogo from '../assets/august-logo.png'
 
 function AugustLogo() {
   return (

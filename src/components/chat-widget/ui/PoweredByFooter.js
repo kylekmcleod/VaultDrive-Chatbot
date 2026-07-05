@@ -1,4 +1,4 @@
-import vaultdriveLogo from '../../../assets/vaultdrive-logo.png'
+import vaultdriveLogo from '../assets/vaultdrive-logo.png'
 import './PoweredByFooter.css'
 
 function PoweredByFooter() {
