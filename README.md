@@ -11,19 +11,17 @@ Chat widget for August Motor Cars. The widget sits in the bottom right of the sc
    VITE_GENAI_API_KEY=your_key_here
   ```
    You can get a free key from [https://aistudio.google.com/apikey](https://aistudio.google.com/apikey)
+   
 4. Run `npm run dev`
 5. Open [http://localhost:5173](http://localhost:5173) in your browser
 
 ## Environment variables
 
-
 | Variable           | Required | Description                             |
 | ------------------ | -------- | --------------------------------------- |
 | VITE_GENAI_API_KEY | Yes      | Google Gemini API key (free tier works) |
 
-
 ## Tech stack
-
 - React 19
 - Vite
 - Google Gemini API (gemini-2.5-flash)
@@ -31,7 +29,6 @@ Chat widget for August Motor Cars. The widget sits in the bottom right of the sc
 - localStorage for chat persistence
 
 ## Thoughts/Notes
-
 The doc sent had some inconsistencies and I used best judgetment for fixes. See below:
 
 - augustmotorcars.com/customs doesn't exist, found fixed link [https://www.augustmotorcars.com/august-customs/](https://www.augustmotorcars.com/august-customs/)
@@ -49,7 +46,6 @@ Code structure is modular. It is a standalone component that can be ported to an
 Some nice sounds play on pickup/ start call and also when msgs are sent. Can be muted/toggled.
 
 ## Using the widget in another React app (SEE LICENSE FILE)
-
 This code and software is completely free for you to use under the MIT License. You can modify and deploy however you would like!
 
 I designed the whole chat system in one modular folder `src/components/chat-widget/`. It has no external dependencies outside of React itself so all the logic, styles, assets, and API code are inside that one folder. You are free to use it wherever, I give you full rights.
