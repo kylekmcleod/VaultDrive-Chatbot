@@ -39,7 +39,7 @@ I went with the Gemini API over OpenAI because it has a free tier that doesn't r
 
 I stored messages in localStorage so the conversation doesn't end when a user accidentally closed or refreshes. Every time a new message is sent or received, the convo gets saved to the browser's localStorage as JSON. When the widget loads, it checks if there's a saved conversation and picks up where you left off instead of showing the welcome screen again. Clicking "End Conversation" clears the stored messages so the next time the widget opens it starts fresh.
 
-API error messages added. I think gemini is like 15 messages until rate limited so right now just shpows message straight from gemini. Can be customized.
+API error messages added. I think gemini is like 15 messages until rate limited so right now just shows message straight from gemini. Can be customized.
 
 Code structure is modular. It is a standalone component that can be ported to any React app. See below.
 
