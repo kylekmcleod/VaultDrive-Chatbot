@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { DEALERSHIP } from '../constants/config'
 import { sendChatMessage } from '../services/gemini'
+import { playMessageSentSound, playMessageReceivedSound } from '../services/callSounds'
 
 const STORAGE_KEY = 'vaultdrive_chat_messages'
 
@@ -80,6 +81,7 @@ export function useChat(initialMessage) {
     sendChatMessage([userMsg])
       .then((reply) => {
         setMessages((prev) => [...prev, createMessage('assistant', reply)])
+        playMessageReceivedSound()
       })
       .catch((err) => {
         setError(err.message || 'Something went wrong.')
@@ -99,10 +101,12 @@ export function useChat(initialMessage) {
     setMessages(history)
     setIsLoading(true)
     setError(null)
+    playMessageSentSound()
 
     try {
       const reply = await sendChatMessage(history)
       setMessages((prev) => [...prev, createMessage('assistant', reply)])
+      playMessageReceivedSound()
     } catch (err) {
       setError(err.message || 'Something went wrong. Please try again.')
     } finally {

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import WidgetHeader from '../ui/WidgetHeader'
 import PoweredByFooter from '../ui/PoweredByFooter'
+import { playCallStartSound, playCallEndSound } from '../services/callSounds'
 import jessicaAvatar from '../assets/jessica-avatar.png'
 import './VoiceScreen.css'
 
@@ -97,7 +98,10 @@ function VoiceScreen({ onClose, onSwitchToText, isClosing }) {
   useParticleDots(canvasRef, isConnected)
 
   useEffect(() => {
-    const timer = setTimeout(() => setStatus(STATUSES[1]), CONNECT_DELAY)
+    const timer = setTimeout(() => {
+      setStatus(STATUSES[1])
+      playCallStartSound()
+    }, CONNECT_DELAY)
     return () => clearTimeout(timer)
   }, [])
 
@@ -108,6 +112,7 @@ function VoiceScreen({ onClose, onSwitchToText, isClosing }) {
   }, [isConnected])
 
   const handleEndCall = () => {
+    playCallEndSound()
     onClose()
   }
 

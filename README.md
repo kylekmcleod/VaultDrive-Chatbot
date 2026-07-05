@@ -11,7 +11,6 @@ Chat widget for August Motor Cars. The widget sits in the bottom right of the sc
    VITE_GENAI_API_KEY=your_key_here
   ```
    You can get a free key from [https://aistudio.google.com/apikey](https://aistudio.google.com/apikey)
-   
 4. Run `npm run dev`
 5. Open [http://localhost:5173](http://localhost:5173) in your browser
 
@@ -46,6 +45,8 @@ I stored messages in localStorage so the conversation doesn't end when a user ac
 API error messages added. I think gemini is like 15 messages until rate limited so right now just shpows message straight from gemini. Can be customized.
 
 Code structure is modular. It is a standalone component that can be ported to any React app. See below.
+
+Some nice sounds play on pickup/ start call and also when msgs are sent.
 
 ## Using the widget in another React app (SEE LICENSE FILE)
 
