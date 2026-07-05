@@ -47,7 +47,7 @@ API error messages added. I think gemini is like 15 messages until rate limited 
 
 Code structure is modular. It is a standalone component that can be ported to any React app. See below.
 
-## Using the widget in another React app
+## Using the widget in another React app (SEE LICENCE FILE)
 
 I designed the whole chat system in one modular folder `src/components/chat-widget/`. It has no external dependencies outside of React itself so all the logic, styles, assets, and API code are inside that one folder. You are free to use it wherever, I give you full rights.
 
