@@ -1,0 +1,16 @@
+.powered-by {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0rem;
+  padding: 0.5rem 1rem 1rem;
+  margin: 0;
+  font-size: 0.72rem;
+  color: #9ca3af;
+}
+
+.powered-by__logo {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
+}
