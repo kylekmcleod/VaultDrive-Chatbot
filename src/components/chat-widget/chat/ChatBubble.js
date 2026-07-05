@@ -1,3 +1,4 @@
+import jessicaAvatar from '../assets/jessica-avatar.png'
 import './ChatBubble.css'
 
 const URL_REGEX = /(https?:\/\/[^\s]+)/g
@@ -28,6 +29,9 @@ function ChatBubble({ message }) {
 
   return (
     <div className={`chat-bubble ${isUser ? 'chat-bubble--user' : 'chat-bubble--assistant'}`}>
+      {!isUser && (
+        <img src={jessicaAvatar} alt="" className="chat-bubble__avatar" />
+      )}
       <p className="chat-bubble__text">{renderWithLinks(message.content)}</p>
     </div>
   )

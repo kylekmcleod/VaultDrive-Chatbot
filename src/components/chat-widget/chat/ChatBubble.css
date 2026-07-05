@@ -12,6 +12,19 @@
   background: #f1f5f9;
   color: var(--color-text);
   border-bottom-left-radius: 4px;
+  margin-left: 38px;
+  position: relative;
+}
+
+.chat-bubble__avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  left: -38px;
+  bottom: 0;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 .chat-bubble--user {
