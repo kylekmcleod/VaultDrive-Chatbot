@@ -7,7 +7,7 @@ import MessageList from './MessageList'
 import './ChatScreen.css'
 
 function ChatScreen({ onClose, isClosing, initialMessage }) {
-  const { messages, sendMessage, isLoading } = useChat(initialMessage)
+  const { messages, sendMessage, isLoading, error } = useChat(initialMessage)
   const [inputValue, setInputValue] = useState('')
 
   const handleSubmit = (event) => {
@@ -25,6 +25,10 @@ function ChatScreen({ onClose, isClosing, initialMessage }) {
       <WidgetHeader onClose={onClose} />
 
       <MessageList messages={messages} isLoading={isLoading} />
+
+      {error && (
+        <div className="chat-screen__error">{error}</div>
+      )}
 
       <div className="chat-screen__footer">
         <WidgetInput

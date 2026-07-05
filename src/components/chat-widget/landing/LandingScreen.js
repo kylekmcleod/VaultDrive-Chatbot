@@ -1,21 +1,10 @@
-import { useState } from 'react'
 import { DEALERSHIP, QUICK_ACTIONS } from '../../../constants/config'
 import WidgetHeader from '../ui/WidgetHeader'
 import QuickActionButton from '../ui/QuickActionButton'
-import WidgetInput from '../ui/WidgetInput'
 import PoweredByFooter from '../ui/PoweredByFooter'
 import './LandingScreen.css'
 
 function LandingScreen({ onClose, onStartChat, isClosing }) {
-  const [inputValue, setInputValue] = useState('')
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const trimmed = inputValue.trim()
-    if (!trimmed) return
-    onStartChat(trimmed)
-  }
-
   return (
     <section
       className={`landing-screen ${isClosing ? 'landing-screen--closing' : 'landing-screen--open'}`}
@@ -35,7 +24,7 @@ function LandingScreen({ onClose, onStartChat, isClosing }) {
             <QuickActionButton
               key={action.id}
               label={action.label}
-              onClick={action.id === 'chat' ? onStartChat : undefined}
+              onClick={action.id === 'chat' ? () => onStartChat() : undefined}
               style={{ animationDelay: `${120 + index * 80}ms` }}
             />
           ))}
@@ -43,12 +32,6 @@ function LandingScreen({ onClose, onStartChat, isClosing }) {
       </div>
 
       <div className="landing-screen__footer">
-        <WidgetInput
-          value={inputValue}
-          onChange={(event) => setInputValue(event.target.value)}
-          onSubmit={handleSubmit}
-        />
-
         <PoweredByFooter />
       </div>
     </section>
