@@ -50,6 +50,34 @@
   color: #dc2626;
 }
 
+.widget-header__mute {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--color-text-muted);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.widget-header__mute:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.widget-header__mute--active {
+  color: var(--color-accent);
+  background: rgba(232, 93, 106, 0.12);
+}
+
+.widget-header__mute:active {
+  transform: scale(0.95);
+}
+
 .widget-header__close {
   width: 32px;
   height: 32px;

@@ -4,7 +4,7 @@ import QuickActionButton from '../ui/QuickActionButton'
 import PoweredByFooter from '../ui/PoweredByFooter'
 import './LandingScreen.css'
 
-function LandingScreen({ onClose, onStartChat, onStartVoice, isClosing }) {
+function LandingScreen({ onClose, onStartChat, onStartVoice, isClosing, isMuted, onToggleMute }) {
   return (
     <section
       className={`landing-screen ${isClosing ? 'landing-screen--closing' : 'landing-screen--open'}`}
@@ -12,6 +12,8 @@ function LandingScreen({ onClose, onStartChat, onStartVoice, isClosing }) {
     >
       <WidgetHeader
         onClose={onClose}
+        isMuted={isMuted}
+        onToggleMute={onToggleMute}
       />
 
       <div className="landing-screen__body">

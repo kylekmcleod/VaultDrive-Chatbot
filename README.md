@@ -46,7 +46,7 @@ API error messages added. I think gemini is like 15 messages until rate limited 
 
 Code structure is modular. It is a standalone component that can be ported to any React app. See below.
 
-Some nice sounds play on pickup/ start call and also when msgs are sent.
+Some nice sounds play on pickup/ start call and also when msgs are sent. Can be muted/toggled.
 
 ## Using the widget in another React app (SEE LICENSE FILE)
 

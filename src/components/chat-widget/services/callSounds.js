@@ -1,4 +1,17 @@
 let audioContext = null
+let isMuted = false
+
+const MUTE_STORAGE_KEY = 'vaultdrive_chat_muted'
+
+function loadMutedPreference() {
+  try {
+    return localStorage.getItem(MUTE_STORAGE_KEY) === 'true'
+  } catch {
+    return false
+  }
+}
+
+isMuted = loadMutedPreference()
 
 function getAudioContext() {
   if (!audioContext) {
@@ -33,7 +46,24 @@ function resumeAudio() {
   return ctx
 }
 
+export function getIsMuted() {
+  return isMuted
+}
+
+export function setIsMuted(muted) {
+  isMuted = muted
+  try {
+    localStorage.setItem(MUTE_STORAGE_KEY, String(muted))
+  } catch { /* ignore */ }
+}
+
+export function toggleMuted() {
+  setIsMuted(!isMuted)
+  return isMuted
+}
+
 export function playCallStartSound() {
+  if (isMuted) return
   try {
     const ctx = resumeAudio()
     const now = ctx.currentTime
@@ -43,6 +73,7 @@ export function playCallStartSound() {
 }
 
 export function playCallEndSound() {
+  if (isMuted) return
   try {
     const ctx = resumeAudio()
     const now = ctx.currentTime
@@ -52,6 +83,7 @@ export function playCallEndSound() {
 }
 
 export function playMessageSentSound() {
+  if (isMuted) return
   try {
     const ctx = resumeAudio()
     const now = ctx.currentTime
@@ -60,6 +92,7 @@ export function playMessageSentSound() {
 }
 
 export function playMessageReceivedSound() {
+  if (isMuted) return
   try {
     const ctx = resumeAudio()
     const now = ctx.currentTime

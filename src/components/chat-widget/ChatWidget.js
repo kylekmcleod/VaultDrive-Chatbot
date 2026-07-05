@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { WIDGET_VIEWS } from './constants/config'
 import { hasSavedChat, clearSavedMessages } from './hooks/useChat'
+import { getIsMuted, toggleMuted } from './services/callSounds'
 import FloatingButton from './launcher/FloatingButton'
 import LandingScreen from './landing/LandingScreen'
 import ChatScreen from './chat/ChatScreen'
@@ -14,6 +15,7 @@ function ChatWidget() {
     return hasSavedChat() ? WIDGET_VIEWS.CHAT : WIDGET_VIEWS.CLOSED
   })
   const [isClosing, setIsClosing] = useState(false)
+  const [isMuted, setIsMuted] = useState(getIsMuted)
   const initialMessageRef = useRef(null)
 
   const isOpen = view !== WIDGET_VIEWS.CLOSED
@@ -55,6 +57,10 @@ function ChatWidget() {
     }, CLOSE_ANIMATION_MS)
   }
 
+  const handleToggleMute = () => {
+    setIsMuted(toggleMuted())
+  }
+
   return (
     <div className="chat-widget">
       {!isOpen && (
@@ -67,6 +73,8 @@ function ChatWidget() {
           onStartChat={goToChat}
           onStartVoice={goToVoice}
           isClosing={isClosing}
+          isMuted={isMuted}
+          onToggleMute={handleToggleMute}
         />
       )}
 
@@ -77,6 +85,8 @@ function ChatWidget() {
           onStartVoice={goToVoice}
           isClosing={isClosing}
           initialMessage={initialMessageRef.current}
+          isMuted={isMuted}
+          onToggleMute={handleToggleMute}
         />
       )}
 
@@ -85,6 +95,8 @@ function ChatWidget() {
           onClose={closeWidget}
           onSwitchToText={() => goToChat()}
           isClosing={isClosing}
+          isMuted={isMuted}
+          onToggleMute={handleToggleMute}
         />
       )}
     </div>

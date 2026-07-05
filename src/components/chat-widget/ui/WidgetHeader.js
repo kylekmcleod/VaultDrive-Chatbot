@@ -1,25 +1,36 @@
 import AugustLogo from './AugustLogo'
 import CloseIcon from './icons/CloseIcon'
+import MuteIcon from './icons/MuteIcon'
 import { DEALERSHIP } from '../constants/config'
 import './AugustLogo.css'
 import './WidgetHeader.css'
 
-function WidgetHeader({ onClose, onEndConversation }) {
+function WidgetHeader({ onClose, onEndConversation, isMuted, onToggleMute }) {
   return (
     <header className="widget-header">
       <div className="widget-header__brand">
         <AugustLogo />
         <span className="widget-header__title">{DEALERSHIP.name}</span>
-      </div>      <div className="widget-header__actions">
+      </div>
+      <div className="widget-header__actions">
         {onEndConversation && (
           <button
             type="button"
             className="widget-header__end-btn"
             onClick={onEndConversation}
           >
-            End Conversation
+            End Chat
           </button>
         )}
+        <button
+          type="button"
+          className={`widget-header__mute ${isMuted ? 'widget-header__mute--active' : ''}`}
+          onClick={onToggleMute}
+          aria-label={isMuted ? 'Unmute sounds' : 'Mute sounds'}
+          aria-pressed={isMuted}
+        >
+          <MuteIcon muted={isMuted} />
+        </button>
         <button
           type="button"
           className="widget-header__close"

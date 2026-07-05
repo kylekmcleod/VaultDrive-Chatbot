@@ -6,7 +6,7 @@ import PoweredByFooter from '../ui/PoweredByFooter'
 import MessageList from './MessageList'
 import './ChatScreen.css'
 
-function ChatScreen({ onClose, onEndConversation, onStartVoice, isClosing, initialMessage }) {
+function ChatScreen({ onClose, onEndConversation, onStartVoice, isClosing, initialMessage, isMuted, onToggleMute }) {
   const { messages, sendMessage, isLoading, error, endConversation } = useChat(initialMessage)
   const [inputValue, setInputValue] = useState('')
   const [showConfirm, setShowConfirm] = useState(false)
@@ -63,7 +63,12 @@ function ChatScreen({ onClose, onEndConversation, onStartVoice, isClosing, initi
       className={`chat-screen ${isClosing ? 'chat-screen--closing' : 'chat-screen--open'}`}
       aria-label="Chat with Jessica"
     >
-      <WidgetHeader onClose={onClose} onEndConversation={handleEndClick} />
+      <WidgetHeader
+        onClose={onClose}
+        onEndConversation={handleEndClick}
+        isMuted={isMuted}
+        onToggleMute={onToggleMute}
+      />
 
       <MessageList messages={messages} isLoading={isLoading} />
 

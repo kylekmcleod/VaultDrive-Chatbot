@@ -89,7 +89,7 @@ function useParticleDots(canvasRef, isConnected) {
   }, [isConnected, canvasRef])
 }
 
-function VoiceScreen({ onClose, onSwitchToText, isClosing }) {
+function VoiceScreen({ onClose, onSwitchToText, isClosing, isMuted, onToggleMute }) {
   const [status, setStatus] = useState(STATUSES[0])
   const [elapsed, setElapsed] = useState(0)
   const isConnected = status === 'Connected'
@@ -124,7 +124,11 @@ function VoiceScreen({ onClose, onSwitchToText, isClosing }) {
       {isConnected && (
         <canvas ref={canvasRef} className="voice-screen__dots" />
       )}
-      <WidgetHeader onClose={onClose} />
+      <WidgetHeader
+        onClose={onClose}
+        isMuted={isMuted}
+        onToggleMute={onToggleMute}
+      />
 
       <div className="voice-screen__body">
         <div className="voice-screen__mic-wrapper">
