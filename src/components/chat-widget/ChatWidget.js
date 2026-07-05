@@ -4,6 +4,7 @@ import { hasSavedChat, clearSavedMessages } from './hooks/useChat'
 import FloatingButton from './launcher/FloatingButton'
 import LandingScreen from './landing/LandingScreen'
 import ChatScreen from './chat/ChatScreen'
+import VoiceScreen from './voice/VoiceScreen'
 import './ChatWidget.css'
 
 const CLOSE_ANIMATION_MS = 280
@@ -30,6 +31,10 @@ function ChatWidget() {
   const goToChat = (message) => {
     initialMessageRef.current = message || null
     setView(WIDGET_VIEWS.CHAT)
+  }
+
+  const goToVoice = () => {
+    setView(WIDGET_VIEWS.VOICE)
   }
 
   const closeWidget = () => {
@@ -60,6 +65,7 @@ function ChatWidget() {
         <LandingScreen
           onClose={closeWidget}
           onStartChat={goToChat}
+          onStartVoice={goToVoice}
           isClosing={isClosing}
         />
       )}
@@ -70,6 +76,14 @@ function ChatWidget() {
           onEndConversation={handleEndConversation}
           isClosing={isClosing}
           initialMessage={initialMessageRef.current}
+        />
+      )}
+
+      {view === WIDGET_VIEWS.VOICE && (
+        <VoiceScreen
+          onClose={closeWidget}
+          onSwitchToText={() => goToChat()}
+          isClosing={isClosing}
         />
       )}
     </div>

@@ -12,6 +12,15 @@
   min-width: 0;
 }
 
+.widget-header__title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .widget-header__status {
   font-size: 0.8rem;
   color: #16a34a;

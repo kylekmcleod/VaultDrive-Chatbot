@@ -1,5 +1,6 @@
 import AugustLogo from './AugustLogo'
 import CloseIcon from './icons/CloseIcon'
+import { DEALERSHIP } from '../constants/config'
 import './AugustLogo.css'
 import './WidgetHeader.css'
 
@@ -8,8 +9,8 @@ function WidgetHeader({ onClose, onEndConversation }) {
     <header className="widget-header">
       <div className="widget-header__brand">
         <AugustLogo />
-      </div>
-      <div className="widget-header__actions">
+        <span className="widget-header__title">{DEALERSHIP.name} Support</span>
+      </div>      <div className="widget-header__actions">
         {onEndConversation && (
           <button
             type="button"

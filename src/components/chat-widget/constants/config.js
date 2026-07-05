@@ -14,6 +14,6 @@ export const WIDGET_VIEWS = {
 export const GEMINI_MODEL = 'gemini-2.5-flash'
 
 export const QUICK_ACTIONS = [
-  { id: 'voice', label: 'Speak with Jessica [Disabled]' },
+  { id: 'voice', label: 'Speak with Jessica' },
   { id: 'chat', label: 'Start Chat' },
 ]

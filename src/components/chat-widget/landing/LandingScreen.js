@@ -4,7 +4,7 @@ import QuickActionButton from '../ui/QuickActionButton'
 import PoweredByFooter from '../ui/PoweredByFooter'
 import './LandingScreen.css'
 
-function LandingScreen({ onClose, onStartChat, isClosing }) {
+function LandingScreen({ onClose, onStartChat, onStartVoice, isClosing }) {
   return (
     <section
       className={`landing-screen ${isClosing ? 'landing-screen--closing' : 'landing-screen--open'}`}
@@ -25,7 +25,7 @@ function LandingScreen({ onClose, onStartChat, isClosing }) {
               key={action.id}
               actionId={action.id}
               label={action.label}
-              onClick={action.id === 'chat' ? () => onStartChat() : undefined}
+              onClick={action.id === 'chat' ? () => onStartChat() : () => onStartVoice()}
               style={{ animationDelay: `${120 + index * 80}ms` }}
             />
           ))}
