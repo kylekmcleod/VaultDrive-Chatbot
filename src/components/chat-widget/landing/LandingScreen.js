@@ -23,6 +23,7 @@ function LandingScreen({ onClose, onStartChat, isClosing }) {
           {QUICK_ACTIONS.map((action, index) => (
             <QuickActionButton
               key={action.id}
+              actionId={action.id}
               label={action.label}
               onClick={action.id === 'chat' ? () => onStartChat() : undefined}
               style={{ animationDelay: `${120 + index * 80}ms` }}

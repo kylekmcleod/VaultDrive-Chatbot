@@ -9,11 +9,10 @@
   flex-shrink: 0;
 }
 
-.august-logo__text {
-  color: var(--color-white);
-  font-size: 0.45rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+.august-logo__img {
+  width: 28px;
+  height: auto;
+  object-fit: contain;
 }
 
 .august-logo__status {

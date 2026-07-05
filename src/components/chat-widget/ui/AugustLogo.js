@@ -1,7 +1,9 @@
+import augustLogo from '../../../assets/august-logo.png'
+
 function AugustLogo() {
   return (
     <div className="august-logo" aria-hidden="true">
-      <span className="august-logo__text">AUGUST</span>
+      <img src={augustLogo} alt="" className="august-logo__img" />
       <span className="august-logo__status" />
     </div>
   )

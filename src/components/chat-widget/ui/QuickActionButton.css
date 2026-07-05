@@ -1,13 +1,17 @@
 .quick-action-button {
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
   padding: 1rem 1.25rem;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: var(--radius-full);
   background: var(--color-white);
   color: var(--color-text);
   font: inherit;
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 400;
   text-align: center;
   cursor: pointer;
   box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
