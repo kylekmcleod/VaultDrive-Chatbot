@@ -6,8 +6,8 @@ import PoweredByFooter from '../ui/PoweredByFooter'
 import MessageList from './MessageList'
 import './ChatScreen.css'
 
-function ChatScreen({ onClose, isClosing }) {
-  const { messages, sendMessage, isLoading } = useChat()
+function ChatScreen({ onClose, isClosing, initialMessage }) {
+  const { messages, sendMessage, isLoading } = useChat(initialMessage)
   const [inputValue, setInputValue] = useState('')
 
   const handleSubmit = (event) => {

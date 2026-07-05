@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { WIDGET_VIEWS } from '../../constants/config'
 import FloatingButton from './launcher/FloatingButton'
 import LandingScreen from './landing/LandingScreen'
@@ -10,6 +10,7 @@ const CLOSE_ANIMATION_MS = 280
 function ChatWidget() {
   const [view, setView] = useState(WIDGET_VIEWS.CLOSED)
   const [isClosing, setIsClosing] = useState(false)
+  const initialMessageRef = useRef(null)
 
   const isOpen = view !== WIDGET_VIEWS.CLOSED
 
@@ -18,13 +19,17 @@ function ChatWidget() {
     setView(WIDGET_VIEWS.LANDING)
   }
 
-  const goToChat = () => setView(WIDGET_VIEWS.CHAT)
+  const goToChat = (message) => {
+    initialMessageRef.current = message || null
+    setView(WIDGET_VIEWS.CHAT)
+  }
 
   const closeWidget = () => {
     setIsClosing(true)
     window.setTimeout(() => {
       setView(WIDGET_VIEWS.CLOSED)
       setIsClosing(false)
+      initialMessageRef.current = null
     }, CLOSE_ANIMATION_MS)
   }
 
@@ -43,7 +48,11 @@ function ChatWidget() {
       )}
 
       {view === WIDGET_VIEWS.CHAT && (
-        <ChatScreen onClose={closeWidget} isClosing={isClosing} />
+        <ChatScreen
+          onClose={closeWidget}
+          isClosing={isClosing}
+          initialMessage={initialMessageRef.current}
+        />
       )}
     </div>
   )

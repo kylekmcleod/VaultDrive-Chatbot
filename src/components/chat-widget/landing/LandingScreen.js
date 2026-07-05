@@ -11,7 +11,9 @@ function LandingScreen({ onClose, onStartChat, isClosing }) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    // will add this in a bit but now its just placeholder until i figure out more
+    const trimmed = inputValue.trim()
+    if (!trimmed) return
+    onStartChat(trimmed)
   }
 
   return (
