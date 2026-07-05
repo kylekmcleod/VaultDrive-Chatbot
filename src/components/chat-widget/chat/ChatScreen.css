@@ -53,6 +53,78 @@
   color: var(--color-text);
 }
 
+/* Confirm screen */
+.chat-screen__confirm {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.chat-screen__confirm-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.chat-screen__confirm-text {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.chat-screen__confirm-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  width: 100%;
+  max-width: 220px;
+  margin-top: 0.5rem;
+}
+
+.chat-screen__confirm-btn {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.chat-screen__confirm-btn:hover {
+  transform: translateY(-1px);
+}
+
+.chat-screen__confirm-btn:active {
+  transform: translateY(0);
+}
+
+.chat-screen__confirm-btn--yes {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.chat-screen__confirm-btn--yes:hover {
+  background: #dc2626;
+}
+
+.chat-screen__confirm-btn--no {
+  background: #f1f5f9;
+  color: var(--color-text);
+}
+
+.chat-screen__confirm-btn--no:hover {
+  background: #e2e8f0;
+}
+
 @keyframes chat-enter {
   from {
     opacity: 0;

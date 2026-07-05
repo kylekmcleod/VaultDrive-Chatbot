@@ -9,6 +9,7 @@ import './ChatScreen.css'
 function ChatScreen({ onClose, onEndConversation, isClosing, initialMessage }) {
   const { messages, sendMessage, isLoading, error, endConversation } = useChat(initialMessage)
   const [inputValue, setInputValue] = useState('')
+  const [showConfirm, setShowConfirm] = useState(false)
 
   const handleSubmit = (event) => {
     event.preventDefault()
@@ -17,9 +18,44 @@ function ChatScreen({ onClose, onEndConversation, isClosing, initialMessage }) {
     setInputValue('')
   }
 
-  const handleEndConversation = () => {
+  const handleEndClick = () => setShowConfirm(true)
+  const handleCancel = () => setShowConfirm(false)
+
+  const handleConfirmEnd = () => {
     endConversation()
     onEndConversation()
+  }
+
+  if (showConfirm) {
+    return (
+      <section
+        className={`chat-screen ${isClosing ? 'chat-screen--closing' : 'chat-screen--open'}`}
+        aria-label="End conversation confirmation"
+      >
+        <div className="chat-screen__confirm">
+          <h3 className="chat-screen__confirm-title">End Conversation?</h3>
+          <p className="chat-screen__confirm-text">
+            This will clear your chat history. Are you sure?
+          </p>
+          <div className="chat-screen__confirm-actions">
+            <button
+              type="button"
+              className="chat-screen__confirm-btn chat-screen__confirm-btn--yes"
+              onClick={handleConfirmEnd}
+            >
+              Yes, end it
+            </button>
+            <button
+              type="button"
+              className="chat-screen__confirm-btn chat-screen__confirm-btn--no"
+              onClick={handleCancel}
+            >
+              No, go back
+            </button>
+          </div>
+        </div>
+      </section>
+    )
   }
 
   return (
@@ -27,7 +63,7 @@ function ChatScreen({ onClose, onEndConversation, isClosing, initialMessage }) {
       className={`chat-screen ${isClosing ? 'chat-screen--closing' : 'chat-screen--open'}`}
       aria-label="Chat with Jessica"
     >
-      <WidgetHeader onClose={onClose} onEndConversation={handleEndConversation} />
+      <WidgetHeader onClose={onClose} onEndConversation={handleEndClick} />
 
       <MessageList messages={messages} isLoading={isLoading} />
 
