@@ -29,6 +29,30 @@
   text-align: center;
 }
 
+.chat-screen__voice-toggle {
+  margin: 0;
+  padding: 0.25rem 1rem;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  text-align: center;
+}
+
+.chat-screen__voice-link {
+  border: none;
+  background: none;
+  font: inherit;
+  color: var(--color-navy);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.chat-screen__voice-link:hover {
+  color: var(--color-text);
+}
+
 @keyframes chat-enter {
   from {
     opacity: 0;

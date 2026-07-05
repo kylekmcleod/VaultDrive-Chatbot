@@ -42,6 +42,9 @@ function ChatScreen({ onClose, onEndConversation, isClosing, initialMessage }) {
           onSubmit={handleSubmit}
           disabled={isLoading}
         />
+        <p className="chat-screen__voice-toggle">
+          Prefer to talk? <button type="button" className="chat-screen__voice-link">Start a voice call</button>
+        </p>
         <PoweredByFooter />
       </div>
     </section>
