@@ -1,0 +1,40 @@
+.chat-bubble {
+  max-width: 80%;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-lg);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  animation: bubble-enter 0.25s ease both;
+}
+
+.chat-bubble--assistant {
+  align-self: flex-start;
+  background: #f1f5f9;
+  color: var(--color-text);
+  border-bottom-left-radius: 4px;
+}
+
+.chat-bubble--user {
+  align-self: flex-end;
+  background: var(--color-navy);
+  color: var(--color-white);
+  border-bottom-right-radius: 4px;
+}
+
+.chat-bubble__text {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+@keyframes bubble-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

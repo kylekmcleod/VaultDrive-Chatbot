@@ -6,7 +6,7 @@ import WidgetInput from '../ui/WidgetInput'
 import PoweredByFooter from '../ui/PoweredByFooter'
 import './LandingScreen.css'
 
-function LandingScreen({ onClose, isClosing }) {
+function LandingScreen({ onClose, onStartChat, isClosing }) {
   const [inputValue, setInputValue] = useState('')
 
   const handleSubmit = (event) => {
@@ -33,6 +33,7 @@ function LandingScreen({ onClose, isClosing }) {
             <QuickActionButton
               key={action.id}
               label={action.label}
+              onClick={action.id === 'chat' ? onStartChat : undefined}
               style={{ animationDelay: `${120 + index * 80}ms` }}
             />
           ))}
