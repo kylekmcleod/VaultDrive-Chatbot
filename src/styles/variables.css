@@ -1,0 +1,20 @@
+:root {
+  --color-navy: #0a0d13;
+  --color-navy-dark: #141b26;
+  --color-white: #ffffff;
+  --color-surface: #f8f9fb;
+  --color-text: #1a2332;
+  --color-text-muted: #6b7280;
+  --color-accent: #e85d6a;
+  --color-accent-soft: #fce8ea;
+
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --shadow-widget: 0 8px 32px rgba(0, 0, 0, 0.18);
+  --widget-width: 380px;
+  --widget-height: 560px;
+}
